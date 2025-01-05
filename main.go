@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/syedazeez337/GoNLP/analysis"
+	"github.com/syedazeez337/GoNLP/input"
 )
 
 func main() {
@@ -81,9 +82,21 @@ func main() {
 	nb := analysis.NewNaiveBayesCalssifier()
 	nb.Train(positiveExample, negativeExample)
 
-	testText := "I hate writing Go programmes!"
+	fmt.Print("Get an input from the user: ")
+	testText := input.GetInput()
 	result := nb.Predict(testText)
 
 	fmt.Println("Prediction for test:", testText)
 	fmt.Println("Sentiment:", result)
+
+	/*
+		// detect a language
+		testText := "Bonjour tout le monde!"
+
+		translate.DetectLang(testText)
+
+		inflections.ToPlural("Cat")
+		inflections.ToSingular("Rabbits")
+	*/
+
 }
